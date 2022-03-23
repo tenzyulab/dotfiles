@@ -22,6 +22,10 @@ alias cll='clear; ls -lahF'
 alias v='vim'
 alias vz='v ~/.zshrc'
 
+alias cdf='cd ~/.dotfiles'
+
+alias reload='exec zsh'
+
 alias top='top -d 1'
 alias cp='cp -i'
 alias mv='mv -i'
