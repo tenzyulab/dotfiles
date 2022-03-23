@@ -1,6 +1,3 @@
-export PS1='%F{238}┌%f %F{093}%n%f%F{238} @ %f%F{093}%m%f %F{238}in%f %F{093}%~%f
-%F{238}└%f %F{005}▷%f '
-
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1023
 export SAVEHIST=65535
@@ -38,9 +35,23 @@ setopt nobeep
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
+
 function chpwd() {
     echo `pwd` > ~/.zsh_login_directory
 }
 
 cd `<~/.zsh_login_directory`
+
+
+autoload -Uz vcs_info
+setopt prompt_subst
+
+function precmd() {
+    vcs_info
+}
+
+zstyle ':vcs_info:git:*' formats '(%b)'
+
+export PS1='%F{238}┌%f %F{093}%n%f%F{238} @ %f%F{093}%m%f %F{238}in%f %F{093}%~%f %F{10}$vcs_info_msg_0_%f
+%F{238}└%f %F{005}▷%f '
 
