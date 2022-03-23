@@ -41,10 +41,10 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 
 function chpwd() {
-    echo `pwd` > ~/.zsh_login_directory
+    echo `pwd` > ~/.zsh_login_path
 }
 
-cd `<~/.zsh_login_directory`
+cd `<~/.zsh_login_path`
 
 
 autoload -Uz vcs_info
